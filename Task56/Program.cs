@@ -45,18 +45,22 @@ void PrintArray(string message)
 
 void FindMinSum()
 {
+    // Здесь будем хранить номер строки с минимальной суммой элементов
+    int indexOfMinRow = 0;
     // Здесь будем хранить суммы строк
     int[] sumOfRows = new int[array.GetLength(0)];
     // Проходим по каждой строке
-    for (int i < 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
         // Подсчитываем сумму столбцов
-        for (int j < 0; array.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            sumOfRows[i] += array[i,j];
+            sumOfRows[i] += array[i, j];
         }
-// Определение минимальной суммы можно сделать прямо здесь
+        if (sumOfRows[i] < sumOfRows[indexOfMinRow])
+            indexOfMinRow = i;
     }
+    Console.WriteLine("Наименьшая сумма элементов в строке с номером: " + indexOfMinRow);
 }
 
 PrintArray("Случайный массив");
